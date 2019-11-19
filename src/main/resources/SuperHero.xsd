@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.example.org/SuperHero"
+    xmlns:tns="http://www.example.org/SuperHero"
+    elementFormDefault="qualified">
+    
+    <!-- Format of a getHero Request message -->
+    <xs:element name="getHeroRequest">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element name="name" type="xs:string"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Format of the getHero response message payload -->
+    <xs:element name="getHeroResponse">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element name="SuperHero" type="tns:SuperHero"></xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    
+    <!-- Definition of the SuperHero model -->
+    <xs:complexType name="SuperHero">
+    	<xs:sequence>
+    		<xs:element name="name" type="xs:string"></xs:element>
+    		<xs:element name="superPower" type="tns:superPower"></xs:element>
+    		<xs:element name="weakness" type="tns:superPower"></xs:element>
+    		<xs:element name="powerLevel" type="xs:int"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="superPower">
+    	<xs:restriction base="xs:string">
+    		<xs:enumeration value="Flight"></xs:enumeration>
+    		<xs:enumeration value="Gravity"></xs:enumeration>
+    		<xs:enumeration value="Invisibility"></xs:enumeration>
+    		<xs:enumeration value="Invulnerability"></xs:enumeration>
+    		<xs:enumeration value="Pyrokinesis"></xs:enumeration>
+    		<xs:enumeration value="Teleportation"></xs:enumeration>
+    		<xs:enumeration value="SuperSpeed"></xs:enumeration>
+    		<xs:enumeration value="ChronoGenesis"></xs:enumeration>
+    		<xs:enumeration value="LaserEyes"></xs:enumeration>
+    		<xs:enumeration value="FutureSight"></xs:enumeration>
+    		<xs:enumeration value="SuperStrength"></xs:enumeration>
+    		<xs:enumeration value="Telekinesis"></xs:enumeration>
+    	</xs:restriction>
+    </xs:simpleType>
+    
+    
+</xs:schema>
